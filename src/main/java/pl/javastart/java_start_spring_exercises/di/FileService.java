@@ -2,6 +2,7 @@ package pl.javastart.java_start_spring_exercises.di;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import pl.javastart.java_start_spring_exercises.di.crypto.CipherService;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -14,9 +15,11 @@ import java.util.stream.Collectors;
 @Service
 public class FileService {
     private final String fileName;
+    private final CipherService cipherService;
 
-    public FileService(@Value("${app.filename}")String fileName) {
+    public FileService(@Value("${app.filename}")String fileName, CipherService cipherService) {
         this.fileName = fileName;
+        this.cipherService = cipherService;
     }
 
     List<Entry> readAllFile() throws IOException {

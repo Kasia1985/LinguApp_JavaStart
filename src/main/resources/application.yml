@@ -3,3 +3,5 @@ app:
 spring:
   banner:
     location: logo-app.txt
+  profiles:
+    active: prod
